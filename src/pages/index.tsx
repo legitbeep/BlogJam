@@ -7,7 +7,6 @@ import CTASection from "components/CTASection";
 import ImageSection from "components/ImageSection";
 
 const Home = ({ posts }: POSTSOBJ) => {
-  console.log(posts, posts.length, "HERRRRRRRRRRRRRRRRRRRRR");
   return (
     <>
       <Head>
@@ -17,7 +16,7 @@ const Home = ({ posts }: POSTSOBJ) => {
         <TextSection />
         {posts.length &&
           posts.map((post) => (
-            <ImageSection post={post.attributes} key={post.id} />
+            <ImageSection post={post.attributes} id={post.id} key={post.id} />
           ))}
         <CTASection />
       </Box>

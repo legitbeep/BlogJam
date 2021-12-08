@@ -1,29 +1,22 @@
-import {
-  Box,
-  Heading,
-  useBreakpointValue,
-  useColorMode,
-} from "@chakra-ui/react";
+import { Box, Heading, useBreakpointValue } from "@chakra-ui/react";
 
 const TextSection = () => {
-  const { colorMode } = useColorMode();
   const textSize = useBreakpointValue({
-    base: "xs",
-    sm: "md",
+    base: "lg",
+    sm: "xl",
   });
   return (
     <>
       <Heading as="h2" fontSize="3xl">
-        Welcome
+        Hello 👋
       </Heading>
 
-      <Box
-        backgroundColor={colorMode === "light" ? "gray.200" : "gray.500"}
-        padding={4}
-        borderRadius={4}
-      >
+      <Box padding={4} borderRadius={4}>
         <Box d="flex" alignItems="center" fontSize={textSize}>
-          Next.js starter fueled with Typescript and Chakra-UI.
+          Welcome to Blog-Jam, an blog app built using a JAM stack. Feel free to
+          read my blogs, I&apos;m not a blog person so you may not find much
+          blogs and maybe this isn&apos;t a good spot for you if you are here
+          for content 😅.
         </Box>
       </Box>
     </>

@@ -1,18 +1,18 @@
 interface POST {
-    title: string;
-    description: string;
-    content: string;
+    title?: string ;
+    description?: string;
+    content?: string;
 } 
 
 type POSTOBJ = {
     post : POST;
 }
 
-type POSTS = {
+type POSTDATA = {
     id : string;
-    attribute : Partial<POST>;
+    attributes : Partial<POST>;
 }
 
 type POSTSOBJ = {
-    posts : Array<ATTR>;
+    posts : Array<POSTDATA>;
 }

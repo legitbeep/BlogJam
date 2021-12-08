@@ -1,25 +1,33 @@
-import { Box, Flex, useColorMode } from "@chakra-ui/react";
-import Image from "next/image";
+import { Box, useColorMode, Link as ChakraLink } from "@chakra-ui/react";
+import Link from "next/link";
 
-import HelperImage from "./HelperImage";
-import MotionBox from "./motion/Box";
+import { Merge } from "types/merge";
 
-const ImageSection = ({ post }: POSTOBJ) => {
+const ImageSection = ({ post, id }: Merge<POSTOBJ, { id: string }>) => {
   const { colorMode } = useColorMode();
-  console.log(post);
   return (
     <>
       <Box
-        backgroundColor={colorMode === "light" ? "gray.200" : "gray.500"}
+        backgroundColor={colorMode === "light" ? "gray.200" : "gray.700"}
         padding={4}
         borderRadius={4}
-        margin="10px 0px"
+        margin="25px 0px"
+        boxShadow="base"
       >
         <Box d="flex" alignItems="center" fontSize="sm">
-          {post.title}
+          <Link passHref href={`/post/${id}`}>
+            <ChakraLink
+              as="h2"
+              fontSize="xl"
+              fontWeight="bold"
+              margin="0 0 10px 0"
+            >
+              {post.title}
+            </ChakraLink>
+          </Link>
         </Box>
         <Box d="flex" alignItems="center" fontSize="sm">
-          {post.description}
+          {post.description?.slice(0, 300)}...
         </Box>
       </Box>
     </>
